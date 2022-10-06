@@ -3,3 +3,4 @@ export * from './Contact';
 export * from './Home';
 export * from './Library';
 export * from './Navbar';
+export * from './SignIn'

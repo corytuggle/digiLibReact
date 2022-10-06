@@ -28,6 +28,7 @@ const useStyles = makeStyles({
     button_text: {
         color: '#9B59B6',
         textDecoration: 'none',
+        margin: '8px',
     },
 });
 

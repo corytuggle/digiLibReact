@@ -70,7 +70,7 @@ export const BookForm = (props:BookFormProps) => {
 
                 <div>
                     <label htmlFor="author">Author</label>
-                    <Input {...register('author')} name="model" placeholder="Author" />
+                    <Input {...register('author')} name="author" placeholder="Author" />
                 </div>
 
                 <div>

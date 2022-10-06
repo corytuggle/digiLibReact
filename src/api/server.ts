@@ -2,7 +2,7 @@ let token = '7df1eeae5327087bf76a5cf8c67a5efe63683088577b8946'
 
 export const server_calls = {
     get: async () => {
-        const response = await fetch(`https://digi-lib-corytuggle.herokuapp.com/`, {
+        const response = await fetch(`https://digi-lib-corytuggle.herokuapp.com/api/books`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ export const server_calls = {
     },
 
     create: async (data: any = {}) => {
-        const response = await fetch(`https://digi-lib-corytuggle.herokuapp.com/`, {
+        const response = await fetch(`https://digi-lib-corytuggle.herokuapp.com/api/books`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ export const server_calls = {
     },
 
     update: async (id:string, data:any = {}) => {
-        const response = await fetch(`https://digi-lib-corytuggle.herokuapp.com/`, {
+        const response = await fetch(`https://digi-lib-corytuggle.herokuapp.com/api/books/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ export const server_calls = {
     },
 
     delete: async(id:string) => {
-        const response = await fetch(`https://digi-lib-corytuggle.herokuapp.com/`,{
+        const response = await fetch(`https://digi-lib-corytuggle.herokuapp.com/api/books/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
