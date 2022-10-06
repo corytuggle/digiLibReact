@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home, Contact, About, Library, SignIn } from './components';
@@ -13,39 +13,35 @@ const temp_props = "Sydbee's Digital Library"
 
 ReactDOM.render(
 	<React.StrictMode>
-		<FirebaseAppProvider firebaseConfig={firebaseConfig} suspense={true}>
-		
-		<Provider store={store}>
+		<React.Suspense fallback={<>...</>}>
+			<FirebaseAppProvider firebaseConfig={firebaseConfig} suspense={true}>
+				<Provider store={store}>
+					<Router>
+						<Switch>
+							<Route exact path='/'>
+								<Home title={temp_props} />
+							</Route>
 
-		<Router>
-			<Switch>
+							<Route path='/library'>
+								<Library></Library>
+							</Route>
 
-				<Route exact path='/'>
-					<Home title={temp_props} />
-				</Route>
+							<Route path='/contact'>
+								<Contact></Contact>
+							</Route>
 
-				<Route path='/library'>
-					<Library></Library>
-				</Route>
+							<Route path='/about'>
+								<About></About>
+							</Route>
 
-				<Route path='/contact'>
-					<Contact></Contact>
-				</Route>
-
-				<Route path='/about'>
-					<About></About>
-				</Route>
-
-				<Route path='/signin'>
-					<SignIn></SignIn>
-				</Route>
-			
-			</Switch>
-		</Router>
-		
-		</Provider>
-		
-		</FirebaseAppProvider>
+							<Route path='/signin'>
+								<SignIn></SignIn>
+							</Route>
+						</Switch>
+					</Router>				
+				</Provider>			
+			</FirebaseAppProvider>
+		</React.Suspense>
 	</React.StrictMode>,
 	document.getElementById('root')
 );
